@@ -1,7 +1,6 @@
 ﻿$("#GetColours").click(function () {
     var bootstrap = $("#bootstrap").val();
-    var re = /#[0-9a-fA-F]{3}(;|,|}|\s)|#[0-9a-fA-F]{6}(;|,|}|\s)|#[0-9a-fA-F]{8}(;|,|}|\s)/g,
-        //Need to get the rgb colours selected as well: something like - rgba\([a-zA-Z0-9,\s]{1,60}\
+    var re = /#[0-9a-fA-F]{3}(;|,|}|\s)|#[0-9a-fA-F]{6}(;|,|}|\s)|#[0-9a-fA-F]{8}(;|,|}|\s)|rgba\([a-zA-Z0-9,.\s]{0,60}\)/g,
         match;
 
     var items = [];
@@ -10,20 +9,15 @@
         if (value[0] == "#")
             value = value.substring(0, value.length - 1);
 
-        var shouldAdd = true;
-        for (var item in items) {
-            if (items[item] == value) {
-                shouldAdd = false;
-            }
-        }
-        
-        if (shouldAdd) {
-            items[items.length] = value;
-        }
+        items[items.length] = value;
     }
-    
-    for (var item in items) {
-        $("#output").append(items[item] + "\r\n");
+
+    var uniqueItems = items.filter(function(elem, pos) {
+        return items.indexOf(elem) == pos;
+    });
+
+    for (var item in uniqueItems) {
+        $("#output").append(uniqueItems[item] + "\r\n");
     }
 });
 

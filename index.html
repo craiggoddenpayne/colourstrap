@@ -8,9 +8,8 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="content/bootstrap_2.3.2/css/bootstrap.css" rel="stylesheet">
     <link href="content/site.css" rel="stylesheet">
-
+   
     <!--<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">-->
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -24,6 +23,13 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    
+    <!-- updates bootstrap on load with defined colours -->
+    <script type="text/javascript" src="content/2.3.2.js"></script>
+    <script type="text/javascript">
+        document.write("<style type='text/css'>" + ReplaceStrap({ organic: "006DCD", cold: "46A546" }) + "</style>");
+    </script>
+
 </head>
 
 <body>
